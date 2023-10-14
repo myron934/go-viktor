@@ -85,7 +85,7 @@ func TestParallelRunLRU(t *testing.T) {
 			time.Sleep(time.Millisecond * 10)
 			//c := rand.Intn(10) + 10
 			//cache.Resize(c)
-			//printf("reset capcity=%d\n", c)
+			//printf("reset capacity=%d\n", c)
 		}
 	}()
 	go func() {

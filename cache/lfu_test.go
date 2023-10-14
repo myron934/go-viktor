@@ -49,7 +49,7 @@ func TestParallelRunLFU(t *testing.T) {
 			time.Sleep(time.Millisecond * 10)
 			c := rand.Intn(10) + 10
 			cache.Resize(c)
-			printf("reset capcity=%d\n", c)
+			printf("reset capacity=%d\n", c)
 		}
 	}()
 	go func() {
@@ -59,4 +59,15 @@ func TestParallelRunLFU(t *testing.T) {
 		}
 	}()
 	time.Sleep(time.Second * 3600)
+}
+
+type MyCache[K int | int64, V any] struct {
+}
+
+func (c *MyCache[K, V]) multiGet(key any) map[K]V {
+	_, ok := key.(K)
+	if !ok {
+		panic("key must by type K")
+	}
+	return nil
 }
