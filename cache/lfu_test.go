@@ -60,14 +60,3 @@ func TestParallelRunLFU(t *testing.T) {
 	}()
 	time.Sleep(time.Second * 3600)
 }
-
-type MyCache[K int | int64, V any] struct {
-}
-
-func (c *MyCache[K, V]) multiGet(key any) map[K]V {
-	_, ok := key.(K)
-	if !ok {
-		panic("key must by type K")
-	}
-	return nil
-}
